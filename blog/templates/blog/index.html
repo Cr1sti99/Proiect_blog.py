@@ -1,0 +1,41 @@
+{%extends "base.html"%}
+{% load static %}
+
+{%block title%}
+    My Blog
+{%endblock%}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post.css"%}"/>
+    <link rel="stylesheet" href="{% static "blog/index.css"%}"/>
+{% endblock %}
+
+{% block content%}
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/stadion.jpg" %}" alt="Cristi-autorul acestui blog" />
+            <h2>Blog de microbist oltean</h2>
+        </header>
+        <p> Buna! Eu sunt Cristi si va invit sa impartasim impresii desppre cea mai iubita echipa de fotbal din Craiova</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2> Ultimele noutati</h2>
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html"%}
+            {% endfor %}
+        </ul>
+    </section>
+    <section id="about">
+        <h2> Ce fac? </h2>
+        <p>
+            Imi place sa sustin echipa
+        </p>
+        <p>
+            Forza Stiinta!!!
+        </p>
+
+    </section>
+{%endblock%}
+
